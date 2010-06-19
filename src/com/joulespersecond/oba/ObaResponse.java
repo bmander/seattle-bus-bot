@@ -50,8 +50,8 @@ public final class ObaResponse {
 
             final String version =
                 JsonHelp.deserializeChild(obj, "version", String.class, context);
-            final int code =
-                JsonHelp.deserializeChild(obj, "code", int.class, context);
+            final Integer code =
+                JsonHelp.deserializeChild(obj, "code", Integer.class, context);
             final String text =
                 JsonHelp.deserializeChild(obj, "text", String.class, context);
             ObaData data;
