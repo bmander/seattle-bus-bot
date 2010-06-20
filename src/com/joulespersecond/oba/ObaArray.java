@@ -37,7 +37,7 @@ public final class ObaArray<E> /*implements Iterable<E>*/ {
                 ArrayList<E> result = new ArrayList<E>(size);
                 for (int i=0; i < size; ++i) {
                     JsonElement child = array.get(i);
-                    E e = context.deserialize(child, subtype);
+                    E e = context.<E>deserialize(child, subtype);
                     result.add(e);
                 }
                 return new ObaArray<E>(result);

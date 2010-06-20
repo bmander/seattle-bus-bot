@@ -37,7 +37,7 @@ public final class ObaRefMap<E> {
                 HashMap<String,E> result = new HashMap<String,E>(size);
                 for (int i=0; i < size; ++i) {
                     JsonElement child = array.get(i);
-                    E e = context.deserialize(child, subtype);
+                    E e = context.<E>deserialize(child, subtype);
                     String id = JsonHelp.deserializeChild(child.getAsJsonObject(),
                             "id", String.class, context);
                     result.put(id, e);

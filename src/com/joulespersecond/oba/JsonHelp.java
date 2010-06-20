@@ -35,7 +35,7 @@ final class JsonHelp {
         if (child == null) {
             return null;
         }
-        return context.deserialize(child, typeOfT);
+        return context.<T>deserialize(child, typeOfT);
     }
 
     interface Deserialize<E> {
@@ -101,7 +101,7 @@ final class JsonHelp {
             return map.get(id);
         }
         else {
-            return JsonHelp.deserializeChild(obj, nonRefChild, cls, context);
+            return JsonHelp.<E>deserializeChild(obj, nonRefChild, cls, context);
         }
     }
     static <E> ObaArray<E> derefArray(JsonObject obj,
